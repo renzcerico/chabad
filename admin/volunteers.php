@@ -302,7 +302,7 @@
                 url = new URL(url);
                 let params = new URLSearchParams(url.search);
                 let id = params.get('id');
-                $('input').attr('readonly', true);
+                $('input').attr('disabled', true);
                 
                 $.ajax({
                     url: '../php/getVolunteerDetails.php',

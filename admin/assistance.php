@@ -17,6 +17,21 @@
     <link href="../smartwizard/css/smart_wizard_theme_dots.min.css" rel="stylesheet">
     <title>Chabad Food Fund</title>
   </head>
+  <style>
+    @media print {
+      #step-1,
+      #step-2,
+      #step-3,
+      #step-4 {
+          display: block;
+      }
+
+      .smartwizard-nav,
+      .btn-toolbar {
+        display: none;
+      }
+    }
+  </style>
   <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-yellow p-4 fixed-top">
         <a class="h2 font-weight-bold text-uppercase text-white text-decoration-none" href="index" id="nav-title">Chabad<span class="text-dark">FoodFund</span></a>
@@ -1145,6 +1160,7 @@
     <script src="../bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
     <script src="../smartwizard/js/jquery.smartWizard.min.js"></script>
     <script type="text/javascript">
+      $('input').attr('disabled', true);
       $('.children-row:not(:eq(0))').attr('hidden', true);
 
       $('#smartwizard').smartWizard({
