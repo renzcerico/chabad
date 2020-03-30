@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChabadFoodFund</title>
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="fontawesome/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-yellow p-4 fixed-top">
+        <a class="h2 font-weight-bold text-uppercase text-white text-decoration-none" href="index" id="nav-title">Chabad<span class="text-dark">FoodFund</span></a>
+        <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0 text-uppercase text-dark ">
+                <li class="nav-item active pr-2 pl-2">
+                    <a class="nav-link" href="index">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item pr-2 pl-2">
+                    <a class="nav-link" href="about">About</a>
+                </li>
+                <!-- <li class="nav-item pr-2 pl-2">
+                    <a class="nav-link" href="#services">Services</a>
+                </li> -->
+                <li class="nav-item pr-2 pl-2">
+                    <a class="nav-link" href="application">Application</a>
+                </li>
+                <li class="nav-item pr-2 pl-2">
+                    <a class="nav-link" href="contact">Contact Us</a>
+                </li>
+                <li class="nav-item pr-2 pl-2">
+                    <a class="nav-link" href="donation.html">Donate</a>
+                    <!-- https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZS38LRZ5CTJNG&source=url -->
+                </li> 
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid mt-5 pt-5 pb-5">
+        <div class="row justify-content-center p-5">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">            
+                <!-- <div class="justify-content-center pb-5 d-flex">
+                    <div class="custom-control custom-radio mr-5">
+                        <input type="radio" id="donation_authorize" name="donation_type" class="custom-control-input" checked>
+                        <label class="custom-control-label" for="donation_authorize"><h4>Credit Card</h4></label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="donation_paypal" name="donation_type" class="custom-control-input">
+                        <label class="custom-control-label" for="donation_paypal"><h4>Paypal</h4></label>
+                    </div>
+                </div> -->
+                <div class="card">
+                    <div class="card-header text-center pt-3">
+                        <h5 id="form_title">Credit Card Donation</h5>
+                    </div>
+                    <div class="card-body p-5">
+                        <form id="donation_form">
+                            <div class="form-row">
+                                <div class="form-group col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                    <label for="">First Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="first_name" placeholder="Enter First Name">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                    <label for="">Last Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="last_name" placeholder="Enter Last Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Company</label>
+                                <input type="text" class="form-control" id="company" placeholder="Enter Company">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Address <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="address" placeholder="Enter Address">
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                                    <label for="">City <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="city" placeholder="Enter City">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                                    <label for="">State <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="state" placeholder="Enter State">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-12 col-lg-4 col-xl-4">
+                                    <label for="">Zip <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="zip" placeholder="Enter Zip">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                    <label for="">Country <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="country" placeholder="Enter Country">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                    <label for="">Email</label>
+                                    <input type="text" class="form-control" id="email" placeholder="Enter Email">
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col">
+                                    <label for="">Amount <span class="text-danger">*</span></label>
+                                    <input type="number" class="form-control" id="amount" placeholder="Enter Amount">
+                                </div>
+                            </div>
+                            <label>Donation Type <span class="text-danger">*</span></label>
+                            <div class="form-row">
+                                <div class="form-group mr-5 credit-card-div">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" id="donation_authorize" name="donation_type" class="custom-control-input" checked>
+                                        <label class="custom-control-label font-weight-regular" for="donation_authorize">Credit Card</label>
+                                    </div>
+                                </div>
+                                <div class="form-group paypal-div">
+                                    <div class="custom-control custom-radio">
+                                        <input type="radio" id="donation_paypal" name="donation_type" class="custom-control-input">
+                                        <label class="custom-control-label font-weight-regular" for="donation_paypal">Paypal</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                    <div class="form-group col-sm-12 col-md-12 col-lg-4 col-xl-4 credit_card">
+                                        <label for="">Card Number <span class="text-danger">*</span></label>
+                                        <input type="number" class="form-control" id="card_number" placeholder="Enter Card Number">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-12 col-lg-4 col-xl-4 credit_card">
+                                        <label for="">Expiration Date <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="exp_date" placeholder="Enter Expiration Date">
+                                    </div>
+                                    <div class="form-group col-sm-12 col-md-12 col-lg-4 col-xl-4 credit_card">
+                                        <label for="">Card Code <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="card_code" placeholder="Enter Card Code">
+                                    </div>
+                            </div>
+
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" name="checkbox_billing" id="checkbox_billing" checked>
+                                <label class="custom-control-label" for="checkbox_billing">My billing address and address are the same.</label>
+                            </div>
+
+                            <div class="form-group biling_form display-none">
+                                <label for="">Address <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="billing_address" placeholder="Enter Address">
+                            </div>
+                            <div class="form-row biling_form display-none">
+                                <div class="form-group col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                    <label for="">City <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="billing_city" placeholder="Enter City">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                    <label for="">State <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="billing_state" placeholder="Enter State">
+                                </div>
+                            </div>
+                            <div class="form-row biling_form display-none">
+                                <div class="form-group col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                    <label for="">Country <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="billing_country" placeholder="Enter Country">
+                                </div>
+                                <div class="form-group col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                                        <label for="">Zip <span class="text-danger">*</span></label>
+                                        <input type="text" class="form-control" id="billing_zip" placeholder="Enter Zip">
+                                </div>
+                            </div>
+                            <span id="donation_result" class="font-weight-500"></span>
+                            <a class="btn btn-warning btn-block mt-4 font-weight-bold" id="btn-submit">Donate</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid bg-yellow p-5" id="contact">
+        <div class="text-center text-dark p-3">
+              <h6 class="font-weight-400">Chabad Food Fund is a non for profit 501(c)3 federally tax exempt charitable organization.</h6>
+              <h6 class="font-weight-400">(Tax ID: 88-8888888)</h6>
+              <h6 class="font-weight-400">Make Tax Deductible Donations Payable to: </h6>
+              <h6 class="font-weight-400">CHABAD FOOD FUND 9500 NW 38th street coral springs, FL 33065</h6>
+              <h6 class="font-weight-400"><i class="fas fa-phone"></i> &nbsp;213-465-8288 &nbsp;&nbsp;&nbsp;<i class="fas fa-envelope"></i>&nbsp; Chabadfoodfund@gmail.com</h6>
+        </div>
+    </div>
+    <div class="container-fluid bg-darkyellow">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-3">
+                <p class="text-gray font-weight-light text-center my-auto small">&copy; Copyright 2019. Chabad Food Fund | Developed by Kirshy Media Inc.</p>
+            </div>
+        </div>
+    </div>
+    <script src="bootstrap/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="bootstrap/popper.min.js" crossorigin="anonymous"></script>
+    <script src="bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>    
+    <script>
+        $(() => {
+            // Validation for type of donation.
+            const radioDonation = () => {
+                // Return true if Paypal
+                if ($("#donation_paypal").is(":checked")) {
+                    $('.credit_card').hide();
+                    $('#form_title').html('Paypal Donation');
+                    return true;
+                }
+                else if ($("#donation_authorize").is(":checked")) {
+                    $('.credit_card').show();
+                    $('#form_title').html('Credit Card Donation');
+                    return false;
+                }
+            };
+
+            // Validation for type of donation.
+            const checkboxBilling = () => {
+                // Return true if Paypal
+                if ($("#checkbox_billing").is(":checked")) {
+                    $('.biling_form').addClass('display-none');
+                    return true;
+                }
+                else {
+                    $('.biling_form').removeClass('display-none');
+                    return false;
+                }
+            };
+
+            // AJAX for Donation.
+            const submit = () => {
+                let card_number = $('#card_number').val();
+                let amount = $('#amount').val();
+                let exp_date = $('#exp_date').val();
+                let card_code = $('#card_code').val();
+                let first_name = $('#first_name').val();
+                let last_name = $('#last_name').val();
+                let company = $('#company').val();
+                let address = $('#address').val();
+                let city = $('#city').val();
+                let state = $('#state').val();
+                let zip = $('#zip').val();
+                let country =$('#country').val();
+                let email = $('#email').val();
+                let error = 0;
+
+                let json = {
+                    card_number: card_number,
+                    amount: amount,
+                    exp_date: exp_date,
+                    card_code: card_code,
+                    first_name: first_name,
+                    last_name: last_name,
+                    company: company,
+                    address: address,
+                    city: city,
+                    state: state,
+                    zip: zip,
+                    country: country,
+                    email: email 
+                };
+                // console.log(json);
+
+                // Checking if Paypal / Credit Card
+                if (radioDonation() == true) {
+                    if (amount == '' || first_name == '' || last_name == '' ) {
+                        error = 1;
+                    }
+                } else {
+                    if (card_number == '' || amount == '' || exp_date == '' || card_code == '' || first_name == '' || last_name == '' || address == '' || city == '' || state == '' || zip == '' || country == '' ) {
+                        error = 1;
+                    }
+                }
+
+                if (error == 0) {
+                    // Checking if Paypal / Credit Card
+                    if (radioDonation() == true) {
+                        saveDonation(json);
+                        let url_string = 'https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=ZS38LRZ5CTJNG&source=url';
+                        window.location.href = url_string;
+                        $('#donation_form').trigger('reset');
+                    } else {
+                        $.ajax({
+                            url: 'php/charge_cc.php',
+                            method: 'POST',
+                            data: json,
+                            success: (res) => {
+                                // console.log(res);
+                                if (res == 201) {
+                                    resultDonation(true);
+                                    $('#donation_form').trigger('reset');
+                                    // sms(json);
+                                    saveDonation(json);
+                                } else {
+                                    resultDonation('failed');
+                                }
+                            }
+                        });
+                    }
+                } else {
+                    resultDonation(false);
+                }
+            };
+
+            // Validation of donation form.
+            const resultDonation = (status) => {
+                $('#donation_result').removeClass('text-success text-danger').html('');
+                
+                if (status == true) {
+                    $('#donation_result').addClass('text-success').html('You have successfully donated.');
+                } else if (status == 'failed') {
+                    $('#donation_result').addClass('text-danger').html('Invalid credit card, transaction failed.');
+                } else {
+                    $('#donation_result').addClass('text-danger').html('Please complete the form.');
+                }
+
+                setTimeout(() => {
+                    $('#donation_result').removeClass('text-success text-danger').html('');
+                }, 3000);
+            };
+            
+            // SMS for donation
+            // const sms = (data) => {
+            //     $.ajax({
+            //         url: 'sms.php',
+            //         method: 'POST',
+            //         data: data,
+            //         success: (res) => {
+            //             console.log(res);
+            //         }
+            //     });
+            // }
+
+            const saveDonation = (json) => {
+                let donationType = radioDonation() ? 'paypal' : 'credit card';
+                json['donation_type'] = donationType;
+
+                $.ajax({
+                    url: 'php/saveDonation.php',
+                    method: 'POST',
+                    data: json,
+                    success: (res) => {
+                        console.log(res);
+                    }
+                });
+            };
+
+            // Click submit button
+            $(document).on('click', '#btn-submit',() => {
+                submit();
+            });
+
+            // Change the type of donation
+            $(document).on('change', ':radio[name="donation_type"]', () => {
+                radioDonation();
+            });
+
+            $(document).on('change', ':checkbox[name="checkbox_billing"]', () => {
+                checkboxBilling();
+            });
+
+            const payment = () => {
+                $.ajax({
+                   url: 'php/paymentAccepting.php',
+                   method: 'GET',
+                   success: (res) => {
+                       if (res == '1') {
+                            $('.credit-card-div').hide();
+                            $('.credit_card').hide();
+                            $('#donation_paypal').attr('checked', true);
+                       } else if (res == '2') {
+                            $('#donation_authorize').attr('checked', true);
+                            $('.paypal-div').hide();
+                       }
+
+                       radioDonation();
+                   } 
+                });
+            };
+
+            payment();
+        });
+    </script>
+</body>
+</html>
