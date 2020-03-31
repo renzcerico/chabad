@@ -56,7 +56,7 @@ include '../php/page_count.php';
                         <option value="1">Paypal</option>
                         <option value="2">Authorize.net</option>
                     </select>
-                    <button class="btn btn-primary btn-sm font-weight-500" id="btnSave">Save</button>
+                    <button class="btn bg-yellow text-dark btn-sm font-weight-bold" id="btnSave">Save</button>
                 </div>
             </div>
         </div>
