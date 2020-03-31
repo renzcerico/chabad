@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2020 at 08:27 PM
--- Server version: 10.1.25-MariaDB
--- PHP Version: 7.1.7
+-- Generation Time: Mar 31, 2020 at 11:15 PM
+-- Server version: 10.1.21-MariaDB
+-- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -41,7 +39,7 @@ CREATE TABLE `tbl_accounts` (
 --
 
 INSERT INTO `tbl_accounts` (`id`, `last_name`, `first_name`, `email_address`, `password`) VALUES
-(1, 'Cericoo', 'Renz Martin', 'cerico.renzmartin@gmail.com', 'thisthis');
+(1, 'Cerico', 'Renz Martin', 'cerico.renzmartin@gmail.com', 'thisthis');
 
 -- --------------------------------------------------------
 
@@ -56,7 +54,6 @@ CREATE TABLE `tbl_assistance` (
   `applicant_age` varchar(255) NOT NULL,
   `spouse_first_name` varchar(255) NOT NULL,
   `spouse_last_name` varchar(255) NOT NULL,
-  `spouse_age` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
   `address_apt` varchar(255) NOT NULL,
   `address_city` varchar(255) NOT NULL,
@@ -76,16 +73,6 @@ CREATE TABLE `tbl_assistance` (
   `driver` varchar(255) NOT NULL,
   `other` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_assistance`
---
-
-INSERT INTO `tbl_assistance` (`id`, `applicant_first_name`, `applicant_last_name`, `applicant_age`, `spouse_first_name`, `spouse_last_name`, `spouse_age`, `address`, `address_apt`, `address_city`, `address_state`, `address_zip`, `house`, `apartment`, `rent`, `bedrooms`, `email_address`, `home_number`, `mother_phone`, `father_phone`, `marriage_status`, `skills`, `tutor_subject`, `driver`, `other`) VALUES
-(18, 'Renz Martin', 'Cerico', '', '', '', '', '', '', '', '', '', 'false', 'false', 'false', '', '', '', '', '', 'single', 'Electrician', 'asd', '', ''),
-(19, 'John', 'Doe', '', '', '', '', '', '', '', '', '', 'false', 'false', 'false', '', '', '', '', '', '', '0', '', '', ''),
-(20, 'Jane', 'Doe', '', '', '', '', '', '', '', '', '', 'false', 'false', 'false', '', '', '', '', '', '', '0', '', '', ''),
-(21, 'Eddie ', 'Joe', '21', 'Cony', 'Joe', '21', 'Manila', '21', 'Olongapo', 'Zamb', '2345', 'false', 'false', 'true', '1', 'Eddie Joe ', '09090909090', '09090909090', '09090909090', 'single', 'Electrician', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -122,44 +109,6 @@ CREATE TABLE `tbl_children` (
   `age` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_children`
---
-
-INSERT INTO `tbl_children` (`id`, `assistance_id`, `first_name`, `last_name`, `middle_name`, `school`, `age`) VALUES
-(1, 18, 'jh', 'kjh', 'kjh', 'kjh', '8'),
-(2, 20, 'jkh', 'kjh', 'kj', 'hk', ''),
-(3, 21, 'None', 'None', 'None', 'None', '0');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_donation`
---
-
-CREATE TABLE `tbl_donation` (
-  `id` int(11) NOT NULL,
-  `first_name` varchar(255) NOT NULL,
-  `last_name` varchar(255) NOT NULL,
-  `company` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `city` varchar(255) NOT NULL,
-  `state` varchar(255) NOT NULL,
-  `zip` int(11) NOT NULL,
-  `country` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `amount` int(11) NOT NULL,
-  `donation_type` varchar(255) NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_donation`
---
-
-INSERT INTO `tbl_donation` (`id`, `first_name`, `last_name`, `company`, `address`, `city`, `state`, `zip`, `country`, `email`, `amount`, `donation_type`, `created_at`) VALUES
-(1, 'renz', 'cerico', '', 'address', 'coty', 'state', 2200, 'phil', '', 1000, 'paypal', '2020-03-27 21:04:31');
-
 -- --------------------------------------------------------
 
 --
@@ -187,16 +136,6 @@ CREATE TABLE `tbl_employment_information` (
   `others_car` varchar(255) NOT NULL,
   `others_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_employment_information`
---
-
-INSERT INTO `tbl_employment_information` (`id`, `assistance_id`, `type_of_work`, `employer`, `years`, `work_address`, `city`, `zip`, `work_number`, `monthly_salary`, `hourly_income`, `unemployment_reason`, `unemployed_since`, `last_interview`, `car`, `sources_income`, `invest`, `others_car`, `others_id`) VALUES
-(6, 18, '', '', '', '', '', '', '', '', '', '', '', '', 'false', '', '', 'false', 7),
-(7, 19, '', '', '', '', '', '', '', '', '', '', '', '', 'false', '', '', 'false', 8),
-(8, 20, '', '', '', '', '', '', '', '', '', '', '', '', 'false', '', '', 'false', 9),
-(9, 21, 'Testing', 'Testing', '2', '', 'Testing', 'Testing', '12', '10000', '100', 'Testing', 'I dont know', 'I dont know', 'true', '', '', 'false', 10);
 
 -- --------------------------------------------------------
 
@@ -258,19 +197,8 @@ CREATE TABLE `tbl_government` (
   `maintenance` varchar(255) NOT NULL,
   `msc` varchar(255) NOT NULL,
   `gap_description` varchar(255) NOT NULL,
-  `financial_counseling` varchar(255) NOT NULL,
-  `monthly_expenses` varchar(255) NOT NULL
+  `financial_counseling` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_government`
---
-
-INSERT INTO `tbl_government` (`id`, `assistance_id`, `welfare`, `food_stamps`, `medicaid`, `medicare`, `ssi`, `hud`, `wic`, `sec_8`, `city_feps`, `ihss`, `other`, `rent`, `clothing`, `gas`, `medical_ins`, `life_ins`, `car_payments`, `car_ins`, `water`, `electrical`, `dsl`, `tuition`, `maintenance`, `msc`, `gap_description`, `financial_counseling`, `monthly_expenses`) VALUES
-(2, 18, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'false', ''),
-(3, 19, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'false', ''),
-(4, 20, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'false', ''),
-(5, 21, '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '10', '', '10', '10', '10', '10', 'testing', 'false', '10');
 
 -- --------------------------------------------------------
 
@@ -292,40 +220,27 @@ CREATE TABLE `tbl_others` (
   `unemployment_reason` varchar(255) NOT NULL,
   `unemployed_since` varchar(255) NOT NULL,
   `last_interview` varchar(255) NOT NULL,
-  `car` varchar(255) NOT NULL,
-  `sources_income` varchar(255) NOT NULL,
-  `investment` varchar(255) NOT NULL,
   `total_savings` varchar(255) NOT NULL,
   `current` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_others`
---
-
-INSERT INTO `tbl_others` (`id`, `type_of_work`, `employer`, `year`, `work_address`, `city`, `zip`, `work_number`, `monthly_salary`, `hourly_income`, `unemployment_reason`, `unemployed_since`, `last_interview`, `car`, `sources_income`, `investment`, `total_savings`, `current`) VALUES
-(7, '', '', '', '', '', '', '', '', '', '', '', '', 'false', '', '', '', ''),
-(8, '', '', '', '', '', '', '', '', '', '', '', '', 'false', '', '', '', ''),
-(9, '', '', '', '', '', '', '', '', '', '', '', '', 'false', '', '', '', ''),
-(10, 'Testing', 'Testing', 'Testing', 'Testing', 'Testing', 'Testing', '21', 'Testing', 'Testing', 'Testing', 'I dont know', 'I dont know', 'false', '', '', '1000', '1000');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_payment`
+-- Table structure for table `tbl_twilio`
 --
 
-CREATE TABLE `tbl_payment` (
-  `id` int(11) NOT NULL,
-  `type` int(11) NOT NULL
+CREATE TABLE `tbl_twilio` (
+  `id` int(10) NOT NULL,
+  `mobile_number` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_payment`
+-- Dumping data for table `tbl_twilio`
 --
 
-INSERT INTO `tbl_payment` (`id`, `type`) VALUES
-(1, 0);
+INSERT INTO `tbl_twilio` (`id`, `mobile_number`) VALUES
+(1, '+639076231102');
 
 -- --------------------------------------------------------
 
@@ -361,7 +276,10 @@ CREATE TABLE `tbl_volunteer` (
 --
 
 INSERT INTO `tbl_volunteer` (`id`, `last_name`, `first_name`, `birthdate`, `email_address`, `phone_number`, `address_1`, `address_2`, `city_town`, `state`, `zip_code`, `availability`, `services_hours`, `special_needs`, `emergency_name`, `emergency_phone`, `team_leader`, `photo`, `language`, `other_skills`) VALUES
-(2, 'Cerico', 'Renz', '1996-10-23', 'Renz@gmail.com', '9070973436', '2198 - A PUROK - 12 DAU - LANE OLD CABALAN', '', 'OLONGAPO CITY', 'REGION 3, ZAMBALES', '2200', 'year', 'yes', 'yes', '', '', 'yes', '', 'yiddish', 'teaching');
+(1, 'This', 'This', '9099-09-09', 'G@g.com', '0909090909', 'THIS', 'THIS', 'THIS', 'THIS', '0900909', 'Evening', 'No', 'Yes', 'This', '09909090', 'Yes', 'C:\\fakepath\\business-computer-connection-contemporary-450035.jpg', 'French', 'Teaching'),
+(2, 'This2', 'This2', '90900-09-09', 'A@gm.com', '0909090090', 'THIS2', 'THIS2', 'THIS2', 'THIS2', '09090', 'Evening', 'No', 'Yes', 'This2', '090909090', 'Yes', 'C:\\fakepath\\business-computer-connection-contemporary-450035.jpg', 'Yiddish', 'Computer'),
+(3, 'This2', 'This2', '90900-09-09', 'A@gm.com', '0909090090', 'THIS2', 'THIS2', 'THIS2', 'THIS2', '09090', 'Evening', 'No', 'Yes', 'This2', '090909090', 'Yes', 'C:\\fakepath\\business-computer-connection-contemporary-450035.jpg', 'Yiddish', 'Computer'),
+(4, 'This2', 'This2', '0090-09-09', 'A@gmail.com', '909090909', 'THIS2', 'THIS2', 'THIS2', 'THIS2', '09090909', 'Weekend', 'No', 'Yes', 'This2', '090909090', 'Yes', 'C:\\fakepath\\shallow-focus-photography-of-chocolate-cupcakes-1028714.jpg', 'Hebrew', 'Culinary');
 
 -- --------------------------------------------------------
 
@@ -392,35 +310,8 @@ INSERT INTO `tbl_webviews` (`id`, `page`, `date`, `ip_address`) VALUES
 (10, 'Index.php', '2020-01-28 08:54:46', NULL),
 (11, 'Index.php', '2020-01-28 09:12:40', NULL),
 (12, 'Index.php', '2020-01-28 09:14:13', NULL),
-(13, 'Index.php', '2020-01-28 12:58:04', NULL),
-(14, 'Index.php', '2020-01-28 17:34:55', NULL),
-(15, 'Index.php', '2020-03-26 16:05:21', NULL),
-(16, 'Index.php', '2020-03-26 16:47:45', NULL),
-(17, 'Index.php', '2020-03-26 17:05:12', NULL),
-(18, 'Index.php', '2020-03-26 17:09:25', NULL),
-(19, 'Index.php', '2020-03-26 17:09:27', NULL),
-(20, 'Index.php', '2020-03-26 17:09:27', NULL),
-(21, 'Index.php', '2020-03-26 17:15:04', NULL),
-(22, 'Index.php', '2020-03-26 17:15:22', NULL),
-(23, 'Index.php', '2020-03-26 17:40:27', '::1'),
-(24, 'Index.php', '2020-03-26 17:40:52', '::1'),
-(25, 'Index.php', '2020-03-26 17:43:23', ''),
-(26, 'Index.php', '2020-03-26 17:44:19', ''),
-(27, 'Index.php', '2020-03-26 17:44:40', '::1'),
-(28, 'Index.php', '2020-03-26 17:46:06', '::1'),
-(29, 'Index.php', '2020-03-26 17:46:31', '::1'),
-(30, 'Index.php', '2020-03-26 19:23:35', '::1'),
-(31, 'Index.php', '2020-03-27 12:13:43', '::1'),
-(32, 'Index.php', '2020-03-27 12:14:47', '::1'),
-(33, 'Index.php', '2020-03-27 12:14:48', '::1'),
-(34, 'Index.php', '2020-03-27 12:14:49', '::1'),
-(35, 'Index.php', '2020-03-27 13:14:56', '::1'),
-(36, 'Index.php', '2020-03-27 16:49:30', '::1'),
-(37, 'Index.php', '2020-03-27 17:13:15', '::1'),
-(38, 'Index.php', '2020-03-27 17:13:17', '::1'),
-(39, 'Index.php', '2020-03-27 18:20:47', '::1'),
-(40, 'Index.php', '2020-03-27 19:21:50', '::1'),
-(41, 'Index.php', '2020-03-30 12:09:33', '::1');
+(13, 'Index.php', '2020-02-20 18:34:37', NULL),
+(14, 'Index.php', '2020-03-30 21:46:22', NULL);
 
 --
 -- Indexes for dumped tables
@@ -442,12 +333,6 @@ ALTER TABLE `tbl_assistance`
 -- Indexes for table `tbl_children`
 --
 ALTER TABLE `tbl_children`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `tbl_donation`
---
-ALTER TABLE `tbl_donation`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -475,9 +360,9 @@ ALTER TABLE `tbl_others`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `tbl_payment`
+-- Indexes for table `tbl_twilio`
 --
-ALTER TABLE `tbl_payment`
+ALTER TABLE `tbl_twilio`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -505,22 +390,17 @@ ALTER TABLE `tbl_accounts`
 -- AUTO_INCREMENT for table `tbl_assistance`
 --
 ALTER TABLE `tbl_assistance`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_children`
 --
 ALTER TABLE `tbl_children`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
--- AUTO_INCREMENT for table `tbl_donation`
---
-ALTER TABLE `tbl_donation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_employment_information`
 --
 ALTER TABLE `tbl_employment_information`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_family`
 --
@@ -530,23 +410,27 @@ ALTER TABLE `tbl_family`
 -- AUTO_INCREMENT for table `tbl_government`
 --
 ALTER TABLE `tbl_government`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_others`
 --
 ALTER TABLE `tbl_others`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `tbl_twilio`
+--
+ALTER TABLE `tbl_twilio`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `tbl_volunteer`
 --
 ALTER TABLE `tbl_volunteer`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tbl_webviews`
 --
 ALTER TABLE `tbl_webviews`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;COMMIT;
-
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

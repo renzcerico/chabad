@@ -1,6 +1,8 @@
 <?php
 include 'stylesheet.php';
 include 'script.php';
+require '../php/session.php';
+include '../model/Database.php';
 ?>
 
 <!DOCTYPE html>
@@ -50,10 +52,10 @@ include 'script.php';
                     <form id="api_form">
                         <div class="form-group">
                             <label for="">Phone Number</label>
-                            <input type="text" class="form-control" id="number" placeholder="Enter Phone Number">
+                            <input type="text" class="form-control" id="mobile_number" >
                         </div>
                         <span id="number_result"></span>
-                        <a href="#" class="btn btn-warning btn-block mt-4 font-weight-bold" id="">Update</a>
+                        <a href="#" class="btn btn-warning btn-block mt-4 font-weight-bold" id="btnUpdate">Update</a>
                     </form>
                 </div>
             </div>
@@ -67,6 +69,37 @@ include 'script.php';
 
       $("a[href='#Administrative']").click();
       $("a[href='twilio.php']").addClass('toActive');
+
+      $.ajax({
+        url: '../php/getNumber.php',
+        method: 'GET',
+        success: (res) => {
+            const data  = JSON.parse(res);
+            $('#mobile_number').val(data.mobile_number);
+        }
+    });
+
+      $(document).on('click', '#btnUpdate', () => {
+          const mobile_number = $('#mobile_number').val();
+
+          $.ajax({
+              url: '../php/update_mobile.php',
+              method: 'POST',
+              data: { mobile_number:mobile_number },
+              success: (res) => {
+
+                  $.ajax({
+                    url:'../php/send_verification.php',
+                    method:'POST',
+                    data:{mobile_number:mobile_number},
+                    success: (res) =>{
+                    window.location.replace('verify_twilio.php');
+
+                    }
+                  });
+              }
+          })
+      });
 
     })
   </script>
