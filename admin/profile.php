@@ -99,6 +99,14 @@ include 'script.php';
 
   </div>
 
+  <div class="container-fluid bg-darkyellow">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-3">
+                <p class="text-gray font-weight-light text-center my-auto small">&copy; Copyright 2019. Chabad Food Fund | Developed by Kirshy Media Inc.</p>
+            </div>
+        </div>
+    </div>
+
 <script type="text/javascript">
   $(() => {
     $("a[href='#Administrative']").click();

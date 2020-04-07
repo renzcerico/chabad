@@ -82,7 +82,10 @@ class Volunteer {
     }
 
     public function getAll() {
-        $sql = "SELECT id, CONCAT(first_name, ' ', last_name) as full_name FROM tbl_volunteer";
+        $sql = "SELECT id, 
+                       UPPER(CONCAT(first_name, ' ', last_name)) as full_name,
+                       DATE_FORMAT(created_at, '%Y-%M-%d %r') as created_at
+                FROM tbl_volunteer";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
 

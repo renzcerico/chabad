@@ -39,7 +39,12 @@ class Donation {
     }
 
     public function getAll() {
-        $sql = "SELECT CONCAT(first_name, ' ', last_name) as full_name, donation_type, created_at FROM tbl_donation";
+        $sql = "SELECT UPPER(CONCAT(first_name, ' ', last_name)) as full_name, 
+                       donation_type, 
+                       amount, 
+                       DATE_FORMAT(created_at, '%Y-%M-%d %r') as created_at 
+                FROM tbl_donation";
+
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
 

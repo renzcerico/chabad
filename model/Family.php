@@ -47,7 +47,10 @@ class Family {
     }
 
     public function getAssistance() {
-        $sql = "SELECT id, CONCAT(applicant_first_name, ' ', applicant_last_name) as full_name FROM tbl_assistance";
+        $sql = "SELECT id, 
+                       UPPER(CONCAT(applicant_first_name, ' ', applicant_last_name)) as full_name,
+                       DATE_FORMAT(created_at, '%Y-%M-%d %r') as created_at
+                FROM tbl_assistance";
         $stmt = $this->conn->prepare($sql);
         $stmt->execute();
 

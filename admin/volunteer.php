@@ -13,6 +13,12 @@ include '../php/page_count.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChabadFoodFund</title>
 </head>
+<style>
+  tr:hover {
+      background-color: #fab3389e !important;
+      cursor: pointer;
+  }
+</style>
 <body>
    <nav class=" navbar-expand-lg navbar-dark bg-yellow p-4 fixed-top">
       <div class="container-fluid">
@@ -54,6 +60,7 @@ include '../php/page_count.php';
                         <thead>
                             <tr>
                                 <th>Name</th>
+                                <th>Date</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,6 +73,14 @@ include '../php/page_count.php';
     </div>
 
   </div>
+
+  <div class="container-fluid bg-darkyellow">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 p-3">
+                <p class="text-gray font-weight-light text-center my-auto small">&copy; Copyright 2019. Chabad Food Fund | Developed by Kirshy Media Inc.</p>
+            </div>
+        </div>
+    </div>
   
   <script>
     $("a[href='volunteer.php']").addClass('toActive');
@@ -79,7 +94,10 @@ include '../php/page_count.php';
                     let data = JSON.parse(res);
 
                     data.map((e) => {
-                        let set = '<tr data-id="'+ e.id +'"><td>'+ e.full_name +'</td></tr>';
+                        let set = '<tr data-id="'+ e.id +'">'+
+                                    '<td>'+ e.full_name +'</td>'+
+                                    '<td>'+ e.created_at +'</td>'+
+                                  '</tr>';
                         $('#tblVolunteer tbody').append(set);
                     });
                 } 
